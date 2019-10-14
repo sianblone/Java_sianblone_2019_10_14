@@ -16,9 +16,7 @@ public class BBsViewServiceImpV1 implements BBsViewService {
 
 	@Override
 	public void viewBBS() {
-		System.out.println("===================================================================================================================================");
-		System.out.printf("%s\t%-15s\t%-50s\t%-10s\t%s\t%s\n", "번호","제목","내용","작성자","작성일자","조회수");
-		System.out.println("-----------------------------------------------------------------------------------------------------------------------------------");
+		this.viewHeader();
 		for(BBsVO vo : bbsList) {
 			System.out.printf("%d\t%-15s\t%-40s\t%-10s\t%d\t%d\n",
 					vo.getSeq(),
@@ -32,9 +30,7 @@ public class BBsViewServiceImpV1 implements BBsViewService {
 
 	@Override
 	public void viewBBS(String subject) {
-		System.out.println("===================================================================================================================================");
-		System.out.printf("%s\t%-15s\t%-50s\t%-10s\t%s\t%s\n", "번호","제목","내용","작성자","작성일자","조회수");
-		System.out.println("-----------------------------------------------------------------------------------------------------------------------------------");
+		this.viewHeader();
 		for(BBsVO vo : bbsList) {
 			if(vo.getSubject().contains(subject)) {
 				System.out.printf("%d\t%-15s\t%-40s\t%-10s\t%d\t%d\n",
@@ -51,9 +47,7 @@ public class BBsViewServiceImpV1 implements BBsViewService {
 
 	@Override
 	public void viewBBS(int sDate, int eDate) {
-		System.out.println("===================================================================================================================================");
-		System.out.printf("%s\t%-15s\t%-50s\t%-10s\t%s\t%s\n", "번호","제목","내용","작성자","작성일자","조회수");
-		System.out.println("-----------------------------------------------------------------------------------------------------------------------------------");
+		this.viewHeader();
 		for(BBsVO vo : bbsList) {
 			if(vo.getDate() >= sDate && vo.getDate() <= eDate) {
 				System.out.printf("%d\t%-15s\t%-40s\t%-10s\t%d\t%d\n",
@@ -69,9 +63,7 @@ public class BBsViewServiceImpV1 implements BBsViewService {
 
 	@Override
 	public void viewBBS(boolean sort) {
-		System.out.println("===================================================================================================================================");
-		System.out.printf("%s\t%-15s\t%-50s\t%-10s\t%s\t%s\n", "번호","제목","내용","작성자","작성일자","조회수");
-		System.out.println("-----------------------------------------------------------------------------------------------------------------------------------");
+		this.viewHeader();
 		Collections.sort(bbsList);
 		if(!sort) Collections.reverse(bbsList);
 		for(BBsVO vo : bbsList) {
@@ -86,6 +78,12 @@ public class BBsViewServiceImpV1 implements BBsViewService {
 			}
 		}
 		
+	}
+	
+	private void viewHeader() {
+		System.out.println("===================================================================================================================================");
+		System.out.printf("%s\t%-15s\t%-50s\t%-10s\t%s\t%s\n", "번호","제목","내용","작성자","작성일자","조회수");
+		System.out.println("-----------------------------------------------------------------------------------------------------------------------------------");
 	}
 
 }

@@ -22,11 +22,6 @@ public class BBsVO implements Comparable<BBsVO> {
 		this.count = count;
 	}
 	
-	@Override
-	public String toString() {
-		return "BBsVO [seq=" + seq + ", date=" + date + ", auth=" + auth + ", subject=" + subject + ", text=" + text
-				+ ", count=" + count + "]";
-	}
 	public int getSeq() {
 		return seq;
 	}
@@ -62,6 +57,12 @@ public class BBsVO implements Comparable<BBsVO> {
 	}
 	public void setCount(int count) {
 		this.count = count;
+	}
+	
+	@Override
+	public String toString() {
+		return "BBsVO [seq=" + seq + ", date=" + date + ", auth=" + auth + ", subject=" + subject + ", text=" + text
+				+ ", count=" + count + "]";
 	}
 	
 	@Override
